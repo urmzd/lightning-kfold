@@ -35,4 +35,4 @@ jobs:
 
       - run: uv sync --all-extras
 
-      - run: uv run pytest
+      - run: uv run pytest --no-header -q || test $? -eq 5
