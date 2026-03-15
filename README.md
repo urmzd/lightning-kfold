@@ -1,6 +1,19 @@
-# lightning-kfold
+<p align="center">
+  <h1 align="center">lightning-kfold</h1>
+  <p align="center">
+    Drop-in stratified K-fold cross-validation with ensemble voting for PyTorch Lightning.
+    <br /><br />
+    <a href="https://github.com/urmzd/lightning-kfold/releases">Install</a>
+    &middot;
+    <a href="https://github.com/urmzd/lightning-kfold/issues">Report Bug</a>
+    &middot;
+    <a href="https://pypi.org/project/lightning-kfold/">PyPI</a>
+  </p>
+</p>
 
-Drop-in stratified K-fold cross-validation with ensemble voting for PyTorch Lightning.
+<p align="center">
+  <a href="https://github.com/urmzd/lightning-kfold/actions/workflows/ci.yml"><img src="https://github.com/urmzd/lightning-kfold/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+</p>
 
 ## Install
 
@@ -71,6 +84,12 @@ logits = ensemble(input_tensor)
 | `KFoldDataModule` | Abstract data module with stratified splitting. Implement `setup_datasets()`. |
 | `KFoldTrainer` | Orchestrates fold training, checkpointing, and ensemble creation. |
 | `EnsembleVotingModel` | Loads K checkpoints and averages their logits at test time. |
+
+## Agent Skill
+
+```bash
+npx skills add urmzd/lightning-kfold
+```
 
 ## License
 

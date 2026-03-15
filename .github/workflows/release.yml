@@ -35,6 +35,7 @@ jobs:
         id: sr
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          config: sr.yaml
           build-command: "uv lock"
 
     outputs:
