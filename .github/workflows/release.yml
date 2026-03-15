@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Re-release the current tag (use when a previous release partially failed)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    name: Release
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v6
+
+      - uses: urmzd/semantic-release@v1
+        id: sr
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          build-command: "uv lock"
+
+    outputs:
+      released: ${{ steps.sr.outputs.released }}
+      tag: ${{ steps.sr.outputs.tag }}
+
+  publish:
+    name: Publish to PyPI
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.release.outputs.tag }}
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Build package
+        run: uv build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

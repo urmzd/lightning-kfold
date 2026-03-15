@@ -1,0 +1,28 @@
+[project]
+name = "lightning-kfold"
+version = "0.1.0"
+description = "Drop-in stratified K-fold cross-validation with ensemble voting for PyTorch Lightning."
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    { name = "Urmzd Mukhammadnaim", email = "hello@urmzd.com" },
+]
+requires-python = ">=3.10"
+dependencies = [
+    "lightning>=2.0",
+    "scikit-learn>=1.0",
+    "torch>=2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
+
+[project.optional-dependencies]
+metrics = ["torchmetrics>=1.0"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "torchmetrics>=1.0",
+]

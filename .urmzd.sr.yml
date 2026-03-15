@@ -1,0 +1,17 @@
+branches:
+  - main
+
+tag_prefix: "v"
+
+version_files:
+  - pyproject.toml
+
+changelog:
+  file: CHANGELOG.md
+
+floating_tags: true
+
+build_command: "uv lock"
+
+stage_files:
+  - uv.lock
