@@ -1,3 +1,5 @@
+> **Archived.** This library is stable but no longer actively maintained. PyTorch Lightning has evolved significantly since this was written; consider using Lightning's built-in cross-validation utilities or writing a custom loop. The PyPI package remains available for existing users.
+
 <p align="center">
   <h1 align="center">lightning-kfold</h1>
   <p align="center">
