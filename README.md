@@ -1,18 +1,10 @@
 <p align="center">
   <h1 align="center">lightning-kfold</h1>
   <p align="center">
-    Drop-in stratified K-fold cross-validation with ensemble voting for PyTorch Lightning.
+    <strong>ARCHIVED — This project is no longer maintained.</strong>
     <br /><br />
-    <a href="https://github.com/urmzd/lightning-kfold/releases">Install</a>
-    &middot;
-    <a href="https://github.com/urmzd/lightning-kfold/issues">Report Bug</a>
-    &middot;
-    <a href="https://pypi.org/project/lightning-kfold/">PyPI</a>
+    Drop-in stratified K-fold cross-validation with ensemble voting for PyTorch Lightning.
   </p>
-</p>
-
-<p align="center">
-  <a href="https://github.com/urmzd/lightning-kfold/actions/workflows/ci.yml"><img src="https://github.com/urmzd/lightning-kfold/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
 </p>
 
 ## Install
